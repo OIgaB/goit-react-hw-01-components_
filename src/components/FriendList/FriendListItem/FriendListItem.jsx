@@ -1,25 +1,18 @@
 import PropTypes from 'prop-types';
-import { FriendCell, FriendStatus } from '../FriendsListStyled';
+import { FriendItem, FriendStatus } from '../FriendsListStyled';
 
-export const FriendListItem = ({ friends }) => {  
+export const FriendListItem = ({ avatar, name, isOnline }) => {  
     return (
-        friends.map(({ avatar, name, isOnline, id}) => (
-            <FriendCell key={id}>
-                <FriendStatus status={isOnline}>{isOnline}</FriendStatus>
-                <img className="avatar" src={avatar} alt="User avatar" width="48" />
-                <p className="name">{name}</p>
-            </FriendCell>
-        )) 
+        <FriendItem>
+            <FriendStatus status={isOnline}></FriendStatus>
+            <img src={avatar} alt="User avatar" width="48" />
+            <p>{name}</p>
+        </FriendItem>
     );
 };
 
 FriendListItem.propTypes = {
-    friends: PropTypes.arrayOf(
-        PropTypes.exact({
-            avatar: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            isOnline: PropTypes.bool.isRequired,
-            id: PropTypes.number.isRequired,
-        })
-    )
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
 }

@@ -8,7 +8,7 @@ export const FriendListContainer = styled.ul`
     box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.2);
 `;
 
-export const FriendCell = styled.li`
+export const FriendItem = styled.li`
     display: flex;
     gap: 10px;
     align-items: center;
